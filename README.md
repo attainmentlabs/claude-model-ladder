@@ -25,3 +25,5 @@ Open Claude Code and paste the contents of [`install-prompt.md`](install-prompt.
 ## Who made this
 
 Marcus David. AI news and playbooks backed by evidence instead of panic: [YouTube](https://youtube.com/@MarcusDavidC) · [X](https://x.com/mdavidcyrus)
+
+Maintained by [Attainment](https://attainmentlabs.com), the growth consultancy where we run this ladder in production for client work.
