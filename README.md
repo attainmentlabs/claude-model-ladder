@@ -4,7 +4,7 @@ Stop overpaying for AI. One paste makes Claude Code route every task to the chea
 
 From the video: [Fable 5 Is Back](https://youtube.com/@MarcusDavidC)
 
-**v2 (July 2026):** now implements both of Anthropic's officially named cost patterns, Orchestrator and Advisor, plus failure-type escalation. Anthropic's own numbers: Orchestrator = 96% of top-model quality at 46% of the cost; Advisor = about 92% at 63%.
+**v2 (July 2026):** now implements both of Anthropic's officially named cost patterns, Orchestrator and Advisor, plus failure-type escalation. Anthropic's own numbers: Orchestrator = 96% of top-model quality at 46% of the cost (BrowseComp); Advisor = about 92% at 63% (SWE-bench Pro).
 
 ## What it does
 

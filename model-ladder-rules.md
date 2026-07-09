@@ -2,7 +2,9 @@
 
 Copy this section into your global CLAUDE.md (usually `~/.claude/CLAUDE.md`).
 
-Anthropic now officially names the two patterns this ladder implements: **Orchestrator** (top model plans, cheap models execute) and **Advisor** (cheap model executes, top model advises on judgment calls). Their published numbers: an orchestrator setup scored 96% of top-model quality at 46% of the cost, and an advisor setup scored about 92% at 63%. This file wires both into Claude Code.
+Ladder, strongest to cheapest: Fable 5 -> Opus 4.8 -> Sonnet 5 -> Haiku 4.5 (use whichever tiers your plan has).
+
+Anthropic now officially names the two patterns this ladder implements: **Orchestrator** (top model plans, cheap models execute) and **Advisor** (cheap model executes, top model advises on judgment calls). Their published numbers: Orchestrator scored 96% of top-model quality at 46% of the cost (BrowseComp), and Advisor scored about 92% at 63% (SWE-bench Pro). This file wires both into Claude Code.
 
 ## Pick your mode with the model picker
 
@@ -22,7 +24,7 @@ Your session model IS the mode switch. Nothing else to configure per session.
 
 4. **Upper-mid tier (Opus 4.8) is a direct-dispatch option for known-hard subtasks** (complex multi-file implementation, nuanced drafting, adversarial verify passes). When a task is clearly above Sonnet's grade upfront, dispatch it there directly instead of watching Sonnet fail twice first.
 
-5. **Escalate by failure type, not a fixed sequence.** A struggling subagent (2+ failed attempts, circling, failing review twice) escalates automatically: execution-shaped failures (complex code, long synthesis, tricky debugging) go one tier up first, then the top model; judgment-shaped failures (misread intent, architecture calls, taste, ambiguity) skip the middle and go straight to the top model. The upper-mid tier gets ONE strike: if it fails a task once, hand it to the top model, a same-tier retry rarely changes the outcome.
+5. **Escalate by failure type, not a fixed sequence.** A struggling subagent (2+ failed attempts, circling, failing review twice) escalates automatically: execution-shaped failures (complex code, long synthesis, tricky debugging) go one tier up first, then the top model; judgment-shaped failures (misread intent, architecture calls, taste, ambiguity) skip the middle and go straight to the top model. The upper-mid tier gets ONE strike: if it fails a task once, hand it to the top model. A same-tier retry rarely changes the outcome.
 
 6. When running as a smaller model and a task clearly needs stronger judgment, say so and recommend escalating. Do not quietly produce a worse answer.
 
@@ -37,6 +39,8 @@ Add to `~/.claude/settings.json` at the top level:
 ```json
 "advisorModel": "claude-fable-5"
 ```
+
+Set it to the strongest model on your plan.
 
 Some builds also need the opt-in flag in the same file's `env` block:
 
