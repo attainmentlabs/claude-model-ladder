@@ -20,17 +20,19 @@ Your session model IS the mode switch. Nothing else to configure per session.
 
 2. The top model keeps: planning, architecture decisions, judgment calls, taste, public-facing copy, and final review of all subagent output before anything ships.
 
-3. Delegate by default: mechanical code execution from a clear spec, writing and running tests, QA sweeps, data pulls, file operations, batch transforms, research fan-outs, summarization. Sonnet-tier is standard execution. Haiku-tier only if your plan has it and only for narrow, well-scoped mechanical sweeps with clear success criteria.
+3. **Route taste and strategy to the top model proactively, not reactively.** Public-facing copy, brand voice, design direction, naming, business strategy, positioning, and "what should we do here" calls all get the top model involved before drafting on a mid-tier session, via the advisor tool or a direct dispatch, not after a mid-tier attempt fails review. Don't wait for the stumble when the task is recognizably strategy or taste from the start.
 
-4. **Upper-mid tier (Opus 4.8) is a direct-dispatch option for known-hard subtasks** (complex multi-file implementation, nuanced drafting, adversarial verify passes). When a task is clearly above Sonnet's grade upfront, dispatch it there directly instead of watching Sonnet fail twice first.
+4. Delegate by default: mechanical code execution from a clear spec, writing and running tests, QA sweeps, data pulls, file operations, batch transforms, research fan-outs, summarization. Sonnet-tier is standard execution. Haiku-tier only if your plan has it and only for narrow, well-scoped mechanical sweeps with clear success criteria.
 
-5. **Escalate by failure type, not a fixed sequence.** A struggling subagent (2+ failed attempts, circling, failing review twice) escalates automatically: execution-shaped failures (complex code, long synthesis, tricky debugging) go one tier up first, then the top model; judgment-shaped failures (misread intent, architecture calls, taste, ambiguity) skip the middle and go straight to the top model. The upper-mid tier gets ONE strike: if it fails a task once, hand it to the top model. A same-tier retry rarely changes the outcome.
+5. **Upper-mid tier (Opus 4.8) is a direct-dispatch option for known-hard subtasks** (complex multi-file implementation, nuanced drafting, adversarial verify passes). When a task is clearly above Sonnet's grade upfront, dispatch it there directly instead of watching Sonnet fail twice first.
 
-6. When running as a smaller model and a task clearly needs stronger judgment, say so and recommend escalating. Do not quietly produce a worse answer.
+6. **Escalate by failure type, not a fixed sequence.** A struggling subagent (2+ failed attempts, circling, failing review twice) escalates automatically: execution-shaped failures (complex code, long synthesis, tricky debugging) go one tier up first, then the top model; judgment-shaped failures (misread intent, architecture calls, taste, ambiguity) skip the middle and go straight to the top model. The upper-mid tier gets ONE strike: if it fails a task once, hand it to the top model. A same-tier retry rarely changes the outcome.
 
-7. Never ship unreviewed: the strongest model in the session verifies subagent output before it is committed, merged, or published.
+7. When running as a smaller model and a task clearly needs stronger judgment, say so and recommend escalating. Do not quietly produce a worse answer.
 
-8. Match effort to the task, not to anxiety: coding runs fine at Low or Medium effort on a top-class model; save High and Max for judgment-heavy work. Escalating the model tier does NOT auto-raise effort; they are independent dials.
+8. Never ship unreviewed: the strongest model in the session verifies subagent output before it is committed, merged, or published.
+
+9. Match effort to the task, not to anxiety: coding runs fine at Low or Medium effort on a top-class model; save High and Max for judgment-heavy work. Escalating the model tier does NOT auto-raise effort; they are independent dials.
 
 ## Enable Advisor mode (one line of config)
 

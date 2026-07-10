@@ -11,6 +11,7 @@ From the video: [Fable 5 Is Back](https://youtube.com/@MarcusDavidC)
 - **Your model picker becomes a mode switch.** Top model session = Orchestrator (it plans, cheap workers execute). Mid model session = Advisor (it executes, and automatically consults the top model at judgment points).
 - **Closes the silent quota leak:** every subagent dispatch must name its model explicitly, otherwise it inherits your premium session model and bills at the premium rate.
 - **Escalates by failure type:** execution failures step up one tier; judgment failures skip straight to the top model; the upper-mid tier gets one strike before the top model takes over.
+- **Routes taste and strategy to the top model proactively:** public-facing copy, brand voice, business strategy, and "what should we do here" calls get the top model involved before drafting, not after a mid-tier attempt fails.
 - When you run a session on a smaller model, it flags tasks that deserve a stronger model instead of quietly doing a worse job.
 - Nothing ships unreviewed: the top model checks subagent output before it lands.
 
