@@ -20,7 +20,7 @@ Your session model IS the mode switch. Nothing else to configure per session.
 
 2. The top model keeps: planning, architecture decisions, judgment calls, taste, public-facing copy, and final review of all subagent output before anything ships.
 
-3. **Route taste and strategy to the top model proactively, not reactively.** Public-facing copy, brand voice, design direction, naming, business strategy, positioning, and "what should we do here" calls all get the top model involved before drafting on a mid-tier session, via the advisor tool or a direct dispatch, not after a mid-tier attempt fails review. Don't wait for the stumble when the task is recognizably strategy or taste from the start.
+3. **Route taste and strategy to the top model proactively, not reactively.** Public-facing copy, brand voice, design direction, naming, business strategy, positioning, architecture-level decisions, and "what should we do here" calls all get the top model involved before drafting on a mid-tier session, via the advisor tool or a direct dispatch, not after a mid-tier attempt fails review. Don't wait for the stumble when the task is recognizably strategy or taste from the start.
 
 4. Delegate by default: mechanical code execution from a clear spec, writing and running tests, QA sweeps, data pulls, file operations, batch transforms, research fan-outs, summarization. Sonnet-tier is standard execution. Haiku-tier only if your plan has it and only for narrow, well-scoped mechanical sweeps with clear success criteria.
 
